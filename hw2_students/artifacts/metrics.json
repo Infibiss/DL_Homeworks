@@ -1,0 +1,133 @@
+{
+  "track": "cv",
+  "model": "yolo26n.pt",
+  "revision": "ultralytics==8.4.50; sha256=9b09cc8bf347f0fc8a5f7657480587f25db09b34bf33b0652110fb03a8ad4fef",
+  "dataset": "Oxford-IIIT Pet; https://www.robots.ox.ac.uk/~vgg/data/pets/; CC BY-SA 4.0",
+  "classes": [
+    "cat_head",
+    "dog_head"
+  ],
+  "n_train": 1000,
+  "n_val": 250,
+  "n_test": null,
+  "params_total": 2572280,
+  "baseline": {
+    "split": "val",
+    "coco_map50": 0.04368190477069259,
+    "heuristic_map50": 0.05378373757215374,
+    "heuristic_ap50_per_class": {
+      "cat_head": 0.07094512144655828,
+      "dog_head": 0.036622353697749195
+    }
+  },
+  "final": {
+    "map50": 0.9912111656522573,
+    "map50_95": 0.8258431350592297,
+    "precision": 0.9640167214751729,
+    "recall": 0.9629579984764083,
+    "per_class": {
+      "cat_head": {
+        "precision": 0.9605842163112327,
+        "recall": 0.9748298070597524,
+        "map50": 0.9923430483554349,
+        "map50_95": 0.8696409159412377
+      },
+      "dog_head": {
+        "precision": 0.9674492266391131,
+        "recall": 0.951086189893064,
+        "map50": 0.9900792829490797,
+        "map50_95": 0.7820453541772215
+      }
+    }
+  },
+  "ablation": {
+    "parameter": "imgsz",
+    "variants": [
+      {
+        "value": 640,
+        "map50": 0.9912111656522573,
+        "map50_95": 0.8258431350592297,
+        "precision": 0.9640167214751729,
+        "recall": 0.9629579984764083,
+        "per_class": {
+          "cat_head": {
+            "precision": 0.9605842163112327,
+            "recall": 0.9748298070597524,
+            "map50": 0.9923430483554349,
+            "map50_95": 0.8696409159412377
+          },
+          "dog_head": {
+            "precision": 0.9674492266391131,
+            "recall": 0.951086189893064,
+            "map50": 0.9900792829490797,
+            "map50_95": 0.7820453541772215
+          }
+        },
+        "train_time_sec": 626.049957639
+      },
+      {
+        "value": 320,
+        "map50": 0.9785444347551164,
+        "map50_95": 0.7655154924920475,
+        "precision": 0.9185330798445193,
+        "recall": 0.938942966680983,
+        "per_class": {
+          "cat_head": {
+            "precision": 0.9022272591270857,
+            "recall": 0.9596933915293028,
+            "map50": 0.9778663875783066,
+            "map50_95": 0.8317569947391448
+          },
+          "dog_head": {
+            "precision": 0.9348389005619527,
+            "recall": 0.9181925418326631,
+            "map50": 0.9792224819319264,
+            "map50_95": 0.6992739902449503
+          }
+        },
+        "train_time_sec": 442.5057896579999
+      }
+    ]
+  },
+  "errors": {
+    "tp": 246,
+    "class": 2,
+    "localization": 0,
+    "background": 8,
+    "missed": 3
+  },
+  "device": "Tesla T4",
+  "train_time_sec": 626.049957639,
+  "fast_mode": false,
+  "train_args": {
+    "epochs": 30,
+    "imgsz": 640,
+    "batch": 16,
+    "optimizer": "AdamW",
+    "lr0": 0.001,
+    "lrf": 0.01,
+    "weight_decay": 0.0005,
+    "warmup_epochs": 2,
+    "patience": 10,
+    "seed": 0,
+    "deterministic": true,
+    "val": true,
+    "hsv_h": 0.015,
+    "hsv_s": 0.5,
+    "hsv_v": 0.4,
+    "degrees": 10,
+    "translate": 0.1,
+    "scale": 0.3,
+    "fliplr": 0.5,
+    "flipud": 0.0,
+    "mosaic": 0.5,
+    "close_mosaic": 5,
+    "mixup": 0.0,
+    "plots": true
+  },
+  "run_times": {
+    "coco": 2.7520190940000475,
+    "heuristic": 0.11704558900009943,
+    "train": 626.049957639
+  }
+}
